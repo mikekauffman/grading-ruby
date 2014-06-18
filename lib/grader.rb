@@ -14,4 +14,15 @@ class Grader
     end
     compared_array
   end
+  def decline_finder
+    number_of_grades = @input_array.length
+    i = number_of_grades
+    (number_of_grades).times do i -= 1
+      if (@input_array[i] == :up || @input_array[i-1] == :up || @input_array[i-2] == :up) || (@input_array.length < 3)
+        return 'not in decline'
+      elsif (@input_array[i] == :down || :even) && (@input_array[i-1] == :down || :even) && (@input_array[i-2]  == :down || :even) && (@input_array[i-3] == :down || :even)
+        return 'in decline'
+      end
+    end
+  end
 end
